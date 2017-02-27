@@ -11,42 +11,52 @@
 
 namespace Toin0u\Tests\Geotools\Facade;
 
+use Geocoder\ProviderAggregator;
+use League\Geotools\Batch\Batch;
+use League\Geotools\Convert\Convert;
+use League\Geotools\Coordinate\Coordinate;
+use League\Geotools\Distance\Distance;
+use League\Geotools\Geohash\Geohash;
+use League\Geotools\Vertex\Vertex;
+use MetroGistics\Geotools\Facade\Geotools;
+use MetroGistics\Tests\Geotools\TestCase;
+
 /**
  * @author Antoine Corcy <contact@sbin.dk>
  */
-class GeotoolsTest extends \Toin0u\Tests\Geotools\TestCase
+class GeotoolsTest extends TestCase
 {
     public function testCoordinate()
     {
-        $this->assertInstanceOf('League\\Geotools\\Coordinate\\Coordinate', \Geotools::coordinate('1, 2'));
+        $this->assertInstanceOf(Coordinate::class, Geotools::coordinate('1, 2'));
     }
 
     public function testDistance()
     {
-        $this->assertInstanceOf('League\\Geotools\\Distance\\Distance', \Geotools::Distance());
+        $this->assertInstanceOf(Distance::class, Geotools::distance());
     }
 
-    public function testPoint()
+    public function testVertex()
     {
-        $this->assertInstanceOf('League\\Geotools\\Point\\Point', \Geotools::Point());
+        $this->assertInstanceOf(Vertex::class, Geotools::vertex());
     }
 
     public function testBatch()
     {
-        $geocoder = new \Geocoder\Geocoder;
+        $geocoder = new ProviderAggregator();
 
-        $this->assertInstanceOf('League\\Geotools\\Batch\\Batch', \Geotools::Batch($geocoder));
+        $this->assertInstanceOf(Batch::class, Geotools::batch($geocoder));
     }
 
     public function testGeohash()
     {
-        $this->assertInstanceOf('League\\Geotools\\Geohash\\Geohash', \Geotools::Geohash());
+        $this->assertInstanceOf(Geohash::class, Geotools::geohash());
     }
 
     public function testConvert()
     {
-        $coordinate = \Geotools::coordinate('1, 2');
+        $coordinate = Geotools::coordinate('1, 2');
 
-        $this->assertInstanceOf('League\\Geotools\\Convert\\Convert', \Geotools::Convert($coordinate));
+        $this->assertInstanceOf(Convert::class, Geotools::convert($coordinate));
     }
 }

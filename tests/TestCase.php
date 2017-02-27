@@ -9,23 +9,26 @@
  * file that was distributed with this source code.
  */
 
-namespace Toin0u\Tests\Geotools;
+namespace MetroGistics\Tests\Geotools;
+
+use MetroGistics\Geotools\Facade\Geotools;
+use MetroGistics\Geotools\GeotoolsServiceProvider;
 
 /**
  * @author Antoine Corcy <contact@sbin.dk>
  */
 class TestCase extends \Orchestra\Testbench\TestCase
 {
-    protected function getPackageProviders()
+    protected function getPackageProviders($app)
     {
         return [
-            'Toin0u\Geotools\GeotoolsServiceProvider',
+            GeotoolsServiceProvider::class,
         ];
     }
-    protected function getPackageAliases()
+    protected function getPackageAliases($app)
     {
         return [
-            'Geotools' => 'Toin0u\Geotools\Facade\Geotools',
+            'Geotools' => Geotools::class,
         ];
     }
 }

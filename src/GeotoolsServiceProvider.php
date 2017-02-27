@@ -9,14 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Toin0u\Geotools;
+namespace MetroGistics\Geotools;
+
+use Illuminate\Support\ServiceProvider;
 
 /**
  * Geotools service provider
  *
  * @author Antoine Corcy <contact@sbin.dk>
  */
-class GeotoolsServiceProvider extends \Illuminate\Support\ServiceProvider
+class GeotoolsServiceProvider extends ServiceProvider
 {
     /**
      * Register the service provider.

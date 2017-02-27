@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Toin0u\Geotools;
+namespace MetroGistics\Geotools;
 
 use League\Geotools\Geotools as BaseGeotools;
 use League\Geotools\Coordinate\Coordinate;

@@ -9,7 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Toin0u\Tests\Geotools;
+namespace MetroGistics\Tests\Geotools;
+
+use MetroGistics\Geotools\GeotoolsServiceProvider;
 
 /**
  * @author Antoine Corcy <contact@sbin.dk>
@@ -20,8 +22,8 @@ class GeotoolsServiceProviderTest extends TestCase
     {
         $loadedProviders = $this->app->getLoadedProviders();
 
-        $this->assertArrayHasKey('Toin0u\\Geotools\\GeotoolsServiceProvider', $loadedProviders);
-        $this->assertTrue($loadedProviders['Toin0u\\Geotools\\GeotoolsServiceProvider']);
+        $this->assertArrayHasKey(GeotoolsServiceProvider::class, $loadedProviders);
+        $this->assertTrue($loadedProviders[GeotoolsServiceProvider::class]);
     }
 
     public function testGeotools()
